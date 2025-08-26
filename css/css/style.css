@@ -856,7 +856,7 @@ figure.dotted-bg {
     right: -50px;
     width: 268px;
     height: 224px;
-    background-image: url("../images/dotted_light.png");
+    background-image: url("../images/cross_pattern.png");
     background-repeat: no-repeat; }
     @media (max-width: 991.98px) {
       figure.dotted-bg:before {
