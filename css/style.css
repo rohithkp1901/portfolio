@@ -2098,3 +2098,31 @@ span.error {
 .gsap-reveal-img .reveal-wrap .reveal-content .portfolio-item-content h3 {
   margin-bottom: 10px;
 }
+ .page-logo {
+        position: fixed;
+        top: 20px;
+        left: 20px;   /* 👉 change to right: 20px; for top-right */
+        z-index: 1200;
+      }
+
+      .page-logo a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 50px;   /* outer circle size */
+        height: 50px;
+        border: 1px solid silver;  /* silver border */
+        border-radius: 50%;        /* makes it round */
+        background: transparent;   /* keep inside transparent */
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        transition: transform 0.2s ease;
+      }
+
+      .page-logo a:hover {
+        transform: scale(1.05); /* hover zoom */
+      }
+
+      .page-logo img {
+        width: 50px;   /* logo size inside */
+        height: auto;
+      }
