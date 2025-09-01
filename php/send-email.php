@@ -6,6 +6,9 @@ require 'PHPMailer/src/Exception.php';
 require 'PHPMailer/src/PHPMailer.php';
 require 'PHPMailer/src/SMTP.php';
 
+// Load config
+$config = require 'config.php';
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name    = trim($_POST['name']);
     $email   = trim($_POST['email']);
@@ -21,16 +24,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     try {
         // SMTP settings
         $mail->isSMTP();
-        $mail->Host       = "smtp.gmail.com";
+        $mail->Host       = $config['smtp_host'];
         $mail->SMTPAuth   = true;
-        $mail->Username   = "yourgmail@gmail.com"; // replace with your Gmail
-        $mail->Password   = "your-app-password";   // use Gmail App Password
+        $mail->Username   = $config['smtp_user'];
+        $mail->Password   = $config['smtp_pass'];
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-        $mail->Port       = 587;
+        $mail->Port       = $config['smtp_port'];
 
         // Sender & recipient
         $mail->setFrom($email, $name);
-        $mail->addAddress("rohithkp549@gmail.com"); // your receiving email
+        $mail->addAddress($config['recipient']);
         $mail->addReplyTo($email, $name);
 
         // Email content
